@@ -1,0 +1,53 @@
+
+Query 1:
+
+select a.name , count(*)
+from album b
+join artist a on b.artistid = a.artistid
+group by 1 
+order by 2 DESC
+limit 5
+
+------------------------------------------------------------------------
+
+Query 2:
+
+select 
+e.employeeid , Concat(e.firstname ,' ', e.lastname) as Full_name, 
+sum(i.total)
+from employee e
+join customer c on c.SupportRepId = e.employeeid
+join invoice i on i.customerid = c.customerid
+group by 1 , 2
+order by 3 DESC
+
+
+
+==================================
+
+
+
+
+Query 3
+select t.name , sum(i.quantity) as Num_of_tracks_purchased
+from invoiceline i
+join track t on t.trackid = i.trackid
+group by 1
+order by 2 DESC
+limit 10
+
+
+
+==================================================
+
+Query 4 :
+
+SELECT 
+i.customerid , concat(c.firstname ,' ' ,  c.lastname) as Full_Name , sum(i.total) as Total_Amount_Spent
+FROM invoice i
+join customer c on i.customerid  = c.customerid
+group by 1,2
+order by 3 DESC
+limit 10
+
+
